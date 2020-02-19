@@ -26,7 +26,7 @@ int main(void) {
     else if(i/3 != 0 && i/5 == 0)
       fputs("Buzz\n", out);
     else
-      fprintf(out, "%d", i);
+      fprintf(out, "%d\n", i);
   }
   // We need to close the file we're writing to, otherwise we may lose data.
   fclose(out);
