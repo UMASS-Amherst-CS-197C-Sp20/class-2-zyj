@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<math.h>
 // This is a constant defined using the "preprocessor".
 #define MAX_ENTRIES 5
 
@@ -9,9 +10,21 @@ void print_stats(double *entries, int length) {
   double max = 0;
   double min = 0;
   double stddev = 0;
+  double variance = 0;
+  max = entries[0];
+  min = entries[0];
   for (int i=0; i<length; i++) {
     sum += entries[i];
+    if (entries[i] > max)
+      max = entries[i];
+    if (entries[i] < min)
+      min = entries[i];
   }
+  mean = sum/length;
+  for (int i=0; i<length; i++){
+    variance += pow(entries[i]-mean, 2);
+  }
+  stddev = sqrt(variance/length);
   printf("\tN=%d\n", length);
   printf("\tsum=%lf\n", sum);
   printf("\tmean=%lf\n", mean);
