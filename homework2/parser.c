@@ -22,7 +22,42 @@
 //floats go in floats.txt
 
 //CODE BEGINS HERE
+#include <stdio.h>
+#include <stdlib.h>
 
+int main(void) {
+
+  char buff[255];
+  ssize_t read;
+
+  
+  FILE* fp1 = fopen("chars.txt", "w");
+
+  FILE* fp2 = fopen("floats.txt", "w");
+
+  FILE* fp3 = fopen("ints.txt", "w");
+
+  FILE* out = fopen("input.txt", "r");
+
+  while((read = fscanf(out, "%s", buff)) != -1){
+    if(buff[0] == 'I'){
+      fscanf(out, "%s", buff);
+      fprintf(fp3, "%s ", buff);
+    }
+    else if(buff[0] == 'C'){
+      fscanf(out, "%s", buff);
+      fprintf(fp1, "%s ", buff);
+    }
+    else{
+      fscanf(out, "%s", buff);
+      fprintf(fp2, "%s ", buff);
+    }
+  }
+
+  fclose(out);
+
+  return 0;
+}
 //include fprintf and fscanf
 
 //begin your main function

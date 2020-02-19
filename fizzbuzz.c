@@ -18,12 +18,12 @@ int main(void) {
   // Demonstrate file I/O.
   fprintf(out, "This doesn't work yet!\n");
 
-  for (int i=0; i < N; i++){
-    if(i/3 == 0 && i/5 == 0)
+  for (int i=0; i <= N; i++){
+    if(i%3 == 0 && i%5 == 0)
       fputs("FizzBuzz\n", out);
-    else if(i/3 == 0 && i/5 != 0)
+    else if(i%3 == 0 && i%5 != 0)
       fputs("Fizz\n", out);
-    else if(i/3 != 0 && i/5 == 0)
+    else if(i%3 != 0 && i%5 == 0)
       fputs("Buzz\n", out);
     else
       fprintf(out, "%d\n", i);
